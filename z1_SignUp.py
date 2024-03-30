@@ -1,7 +1,43 @@
 import tkinter as tk
 from tkinter import ttk
 import sqlite3
+
+def signup():
+    email = email_entry.get()
+    password = password_entry.get()
+    confirm_password = confirm_password_entry.get()
+
+    # Validate email format
+    if '@' not in email or '.' not in email:
+        error_label.config(text='Invalid email address!', foreground='red')
+        return
+
+    # Check if passwords match
+    if password != confirm_password:
+        error_label.config(text='Passwords do not match!', foreground='red')
+        return
+
+    # Insert user into database
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    try:
+        c.execute('INSERT INTO users (email, password) VALUES (?, ?)', (email, password))
+        conn.commit()
+        error_label.config(text='Signup successful!', foreground='green')
+        email_entry.delete(0, tk.END)
+        password_entry.delete(0, tk.END)
+        confirm_password_entry.delete(0, tk.END)
+    except sqlite3.IntegrityError:
+        error_label.config(text='Email already exists!', foreground='red')
+    conn.close()
+
+def open_signin_window():
+    root.withdraw()  # Hide the sign-up window
+    import z2_SignIn  # Import and run the sign-in window
+    z2_SignIn.run_signin_window()
+
 root = tk.Tk()
+root.title('Sign Up')
 
 conn = sqlite3.connect('users.db')
 c = conn.cursor()
