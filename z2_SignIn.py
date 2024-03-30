@@ -14,4 +14,10 @@ email_label.grid(row=0, column=0, sticky="w")
 email_entry = ttk.Entry(main_frame, width=30)
 email_entry.grid(row=0, column=1, sticky="w")
 
+password_label = ttk.Label(main_frame, text="Password:")
+password_label.grid(row=1, column=0, sticky="w")
+
+password_entry = ttk.Entry(main_frame, show="*")  # Show asterisks for password
+password_entry.grid(row=1, column=1, sticky="w")
+
 root.mainloop()
