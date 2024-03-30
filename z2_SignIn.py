@@ -24,6 +24,11 @@ def login():
     email_entry.delete(0, tk.END)
     password_entry.delete(0, tk.END)
 
+def open_signup_window():
+    root.withdraw()  # Hide the sign-up window
+    import z1_SignUp  # Import and run the sign-in window
+    z1_SignUp.run_signup_window()
+
 root = tk.Tk()
 root.title("Sign In")
 
