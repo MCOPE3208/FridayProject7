@@ -18,4 +18,7 @@ confirm_password_label.grid(row=2, column=0, padx=10, pady=5, sticky=tk.E)
 confirm_password_entry = ttk.Entry(root, show='*')
 confirm_password_entry.grid(row=2, column=1, padx=10, pady=5)
 
+signup_button = ttk.Button(root, text='Sign Up', command=signup)
+signup_button.grid(row=3, column=0, columnspan=2, padx=10, pady=10)
+
 root.mainloop()
