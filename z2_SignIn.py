@@ -2,6 +2,28 @@ import tkinter as tk
 from tkinter import ttk
 import sqlite3
 
+def login():
+    email = email_entry.get()
+    password = password_entry.get()
+    
+    # Connect to the SQLite database
+    conn = sqlite3.connect('users.db')
+    cursor = conn.cursor()
+    
+    # Query the database for the entered email and password
+    cursor.execute("SELECT * FROM users WHERE email=? AND password=?", (email, password))
+    user = cursor.fetchone()
+    
+    # Close the database connection
+    conn.close()
+    
+    if user:
+        message_label.config(text="Log in successful", foreground="green")
+    else:
+        message_label.config(text="Email or password incorrect", foreground="red")
+    email_entry.delete(0, tk.END)
+    password_entry.delete(0, tk.END)
+
 root = tk.Tk()
 root.title("Sign In")
 
