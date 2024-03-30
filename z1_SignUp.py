@@ -24,4 +24,7 @@ signup_button.grid(row=3, column=0, columnspan=2, padx=10, pady=10)
 error_label = ttk.Label(root, text='', foreground='red')
 error_label.grid(row=4, column=0, columnspan=2, padx=10, pady=5)
 
+signin_button = ttk.Button(root, text='Already have an account? Sign in here.', command=open_signin_window)
+signin_button.grid(row=5, column=0, columnspan=2, padx=10, pady=5)
+
 root.mainloop()
