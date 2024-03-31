@@ -1,6 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
 import sqlite3
+import sys
+
+# Prevent __pycache__ creation
+sys.dont_write_bytecode = True
 
 def login():
     email = email_entry.get()
