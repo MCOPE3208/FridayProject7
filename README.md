@@ -1,7 +1,8 @@
 # FridayProject7
 ##Overview
 
-This gives users the ability to sign up or sign into a window after they input their correct information
+This gives users the ability to sign up or sign into a window after they input their correct information.
+The z1_SignUp.py file should be the first file you open in order to input your information into first, then you should open the z2_SignIn.py file in order to sign in with the information you provided when you signed up.
 
 ##Files
 
